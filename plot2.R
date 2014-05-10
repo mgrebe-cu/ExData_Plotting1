@@ -17,6 +17,9 @@ data$DateTime <- paste(data$Date, data$Time)
 data[[10]] <- strptime(data[[10]], 
                     "%d/%m/%Y %H:%M:%S")
 
+# Setup for 1 x 1 graphs
+par(mfcol = c(1,1))
+
 ## Plot Global Active Power Line Graph
 png(filename = "plot2.png")
 plot(data$DateTime, data$Global_active_power,

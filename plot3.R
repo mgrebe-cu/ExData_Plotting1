@@ -17,6 +17,9 @@ data$DateTime <- paste(data$Date, data$Time)
 data[[10]] <- strptime(data[[10]], 
                        "%d/%m/%Y %H:%M:%S")
 
+# Setup for 1 x 1 graphs
+par(mfcol = c(1,1))
+
 ## Plot Energy Sub Meeting
 png(filename = "plot3.png")
 ## Plot sub metering 1
@@ -30,4 +33,10 @@ lines(data$DateTime, data$Sub_metering_2,
 ## Plot sub metering 3 color blue
 lines(data$DateTime, data$Sub_metering_3,
       col="blue")
+
+legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
+       lty=c(1,1,1),
+       lwd=c(2.5,2.5,2.5),
+       col=c("black","red","blue")) 
+
 dev.off()

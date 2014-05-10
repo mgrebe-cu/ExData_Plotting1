@@ -17,6 +17,9 @@ data$DateTime <- paste(data$Date, data$Time)
 data[[10]] <- strptime(data[[10]], 
                        "%d/%m/%Y %H:%M:%S")
 
+# Setup for 1 x 1 graphs
+par(mfcol = c(1,1))
+
 ## Plot Global Active Power Histogram
 png(filename = "plot1.png")
 hist(data$Global_active_power, col="red",
